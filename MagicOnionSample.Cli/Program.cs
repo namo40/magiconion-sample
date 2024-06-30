@@ -1,6 +1,9 @@
 ﻿using ConsoleAppFramework;
+using MagicOnionSample.Cli.Commands;
 
 var app = ConsoleApp.Create();
+
+app.Add<HelloWorldCommands>();
 
 var isRunning = true;
 
