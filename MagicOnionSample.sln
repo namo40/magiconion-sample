@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnionSample.Server", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnionSample.Shared", "MagicOnionSample.Shared\MagicOnionSample.Shared.csproj", "{CBC93D07-3263-4F58-A5E3-19C5A61C9FBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicOnionSample.Cli", "MagicOnionSample.Cli\MagicOnionSample.Cli.csproj", "{4644CD7B-36DF-4979-B232-422C66F9B67D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{CBC93D07-3263-4F58-A5E3-19C5A61C9FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBC93D07-3263-4F58-A5E3-19C5A61C9FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBC93D07-3263-4F58-A5E3-19C5A61C9FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4644CD7B-36DF-4979-B232-422C66F9B67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4644CD7B-36DF-4979-B232-422C66F9B67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4644CD7B-36DF-4979-B232-422C66F9B67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4644CD7B-36DF-4979-B232-422C66F9B67D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
