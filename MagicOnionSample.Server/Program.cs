@@ -1,3 +1,5 @@
+using Grpc.Net.Client;
+using MagicOnion.Server;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,20 @@ builder.Services.AddGrpc();
 builder.Services.AddMagicOnion();
 
 var app = builder.Build();
+
+app.UseRouting();
+
+if (app.Environment.IsDevelopment())
+{
+    // MagicOnion용 Swagger 맵핑
+    {
+        var magicOnionServiceDefinition = app.Services.GetService<MagicOnionServiceDefinition>();
+
+        app.MapMagicOnionHttpGateway("_", magicOnionServiceDefinition.MethodHandlers,
+            GrpcChannel.ForAddress("http://localhost:5000"));
+        app.MapMagicOnionSwagger("swagger", magicOnionServiceDefinition.MethodHandlers, "/_/");
+    }
+}
 
 // MagicOnion용 Grpc Service 맵핑
 app.MapMagicOnionService();
