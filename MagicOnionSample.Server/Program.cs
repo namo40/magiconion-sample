@@ -1,5 +1,6 @@
 using Grpc.Net.Client;
 using MagicOnion.Server;
+using MagicOnionSample.Server.Extensions;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,10 @@ builder.WebHost.ConfigureKestrel(options =>
 builder.Services.AddGrpc();
 // MagicOnion Service 등록
 builder.Services.AddMagicOnion();
+
+// Jwt Authentication 등록
+builder.Services.AddJwtAuthentication(builder);
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -28,6 +33,10 @@ if (app.Environment.IsDevelopment())
         app.MapMagicOnionSwagger("swagger", magicOnionServiceDefinition.MethodHandlers, "/_/");
     }
 }
+
+// Asp.net의 인증을 사용하기 위한 설정 추가
+app.UseAuthentication();
+app.UseAuthorization();
 
 // MagicOnion용 Grpc Service 맵핑
 app.MapMagicOnionService();
